@@ -5,13 +5,17 @@ import FilterIcon from "../../../icons/filter-icon";
 import AddIcon from "../../../icons/add-icon";
 import SearchIcon from "../../../icons/search-icon";
 
-function Search({ onFilterClick, onSearch, onOpenModal }) {
+function Search({ onFilterClick, onSearch, onOpenModal, onExport }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
     const value = e.target?.value;
     setSearchTerm(value || "");
     onSearch(value || "");
+  };
+
+  const handleExportClick = () => {
+    onExport();
   };
 
   return (
@@ -41,7 +45,7 @@ function Search({ onFilterClick, onSearch, onOpenModal }) {
           <FilterIcon />
           <span>Filter</span>
         </button>
-        <button type="button" className="export">
+        <button type="button" className="export" onClick={handleExportClick}>
           <ExportIcon />
           <span>Export</span>
         </button>

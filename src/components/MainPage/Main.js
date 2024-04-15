@@ -6,6 +6,7 @@ import Table from "./Table/Table";
 import Filter from "./Filter/Filter";
 import Drawer from "react-modern-drawer";
 import Modal from "react-modal";
+import { saveAs } from "file-saver";
 import "react-modern-drawer/dist/index.css";
 
 Modal.setAppElement("#root");
@@ -150,6 +151,24 @@ function Main() {
     closeModal();
   };
 
+  const convertToCSV = (data) => {
+    const csvHeader =
+      "Title,Brand,Category,Discount Percentage,Price,Rating,Stock\n";
+    const csvData = data
+      .map(
+        (item) =>
+          `${item.title},${item.brand},${item.category},${item.discountPercentage},${item.price},${item.rating},${item.stock}`
+      )
+      .join("\n");
+    return csvHeader + csvData;
+  };
+
+  const handleExport = () => {
+    const csvData = convertToCSV(filteredData);
+    const blob = new Blob([csvData], { type: "text/csv;charset=utf-8" });
+    saveAs(blob, "products.csv");
+  };
+
   const customStyles = {
     content: {
       width: "30%",
@@ -173,6 +192,7 @@ function Main() {
           onFilterClick={toggleFilter}
           onSearch={handleSearch}
           onOpenModal={openModal}
+          onExport={handleExport}
         />
         <Table data={filteredData} />
       </div>

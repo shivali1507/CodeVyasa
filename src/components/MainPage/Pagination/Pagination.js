@@ -41,7 +41,11 @@ export function Pagination({ totalPages, currentPage, onPageChange }) {
       </div>
       <div
         className={`pagination-btn ${currentPage === 1 ? "disabled" : ""}`}
-        onClick={() => onPageChange(currentPage - 1)}
+        onClick={() => {
+          if (currentPage !== 1) {
+            onPageChange(currentPage - 1);
+          }
+        }}
         disabled={currentPage === 1}
       >
         <PrevIcon />
@@ -59,7 +63,11 @@ export function Pagination({ totalPages, currentPage, onPageChange }) {
         className={`pagination-btn ${
           currentPage === totalPages ? "disabled" : ""
         }`}
-        onClick={() => onPageChange(currentPage + 1)}
+        onClick={() => {
+          if (currentPage !== totalPages) {
+            onPageChange(currentPage + 1);
+          }
+        }}
         disabled={currentPage === totalPages}
       >
         <NextIcon />
