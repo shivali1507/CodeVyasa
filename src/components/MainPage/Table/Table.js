@@ -9,6 +9,7 @@ function Table({ data }) {
     direction: "asc",
   });
   const [sortedData, setSortedData] = useState([]);
+  const [allCheckboxChecked, setAllCheckboxChecked] = useState(false);
 
   const itemsPerPage = 9;
   const totalPages = Math.ceil(sortedData?.length / itemsPerPage);
@@ -19,6 +20,10 @@ function Table({ data }) {
 
   const handlePageChange = (page) => {
     setCurrentPage(page);
+  };
+
+  const handleHeaderCheckboxChange = (e) => {
+    setAllCheckboxChecked(e.target.checked);
   };
 
   const handleSort = (field) => {
@@ -58,7 +63,11 @@ function Table({ data }) {
         <thead>
           <tr>
             <th>
-              <input type="checkbox" />
+              <input
+                type="checkbox"
+                checked={allCheckboxChecked}
+                onChange={handleHeaderCheckboxChange}
+              />
             </th>
             <th>Sr No.</th>
             <th>Title</th>
@@ -112,22 +121,30 @@ function Table({ data }) {
           </tr>
         </thead>
         <tbody>
-          {currentItems?.map((item, index) => (
-            <tr key={item.id}>
-              <td>
-                <input type="checkbox" />
+          {currentItems?.length ? (
+            currentItems?.map((item, index) => (
+              <tr key={item.id}>
+                <td>
+                  <input type="checkbox" checked={allCheckboxChecked} />
+                </td>
+                <td>{index + 1}</td>
+                <td>{item.title}</td>
+                <td>{item.brand}</td>
+                <td>{item.category}</td>
+                <td>{item.discountPercentage}</td>
+                <td>{item.price}</td>
+                <td>{item.rating}</td>
+                <td>{item.stock}</td>
+                <td>...</td>
+              </tr>
+            ))
+          ) : (
+            <tr>
+              <td colSpan="10" style={{ height: "200px", fontSize: "30px" }}>
+                No data found !
               </td>
-              <td>{index + 1}</td>
-              <td>{item.title}</td>
-              <td>{item.brand}</td>
-              <td>{item.category}</td>
-              <td>{item.discountPercentage}</td>
-              <td>{item.price}</td>
-              <td>{item.rating}</td>
-              <td>{item.stock}</td>
-              <td>...</td>
             </tr>
-          ))}
+          )}
         </tbody>
       </table>
       <Pagination

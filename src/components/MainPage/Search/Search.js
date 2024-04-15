@@ -5,7 +5,7 @@ import FilterIcon from "../../../icons/filter-icon";
 import AddIcon from "../../../icons/add-icon";
 import SearchIcon from "../../../icons/search-icon";
 
-function Search({ onFilterClick, onSearch }) {
+function Search({ onFilterClick, onSearch, onOpenModal }) {
   const [searchTerm, setSearchTerm] = useState("");
 
   const handleInputChange = (e) => {
@@ -33,7 +33,7 @@ function Search({ onFilterClick, onSearch }) {
       </div>
 
       <div className="btn">
-        <button type="button" className="add-prod">
+        <button type="button" className="add-prod" onClick={onOpenModal}>
           <AddIcon />
           <span>Add Products</span>
         </button>
