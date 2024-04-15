@@ -6,6 +6,13 @@ import { PrevSecIcon } from "../../../icons/prev-sec-icon";
 import { NextSecIcon } from "../../../icons/next-sec-icon";
 
 export function Pagination({ totalPages, currentPage, onPageChange }) {
+  if (
+    typeof totalPages !== "number" ||
+    totalPages <= 0 ||
+    !Number.isInteger(totalPages)
+  ) {
+    return null;
+  }
   const pages = [...Array(totalPages).keys()].map((i) => i + 1);
 
   let displayPages = [];

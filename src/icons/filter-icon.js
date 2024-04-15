@@ -10,8 +10,8 @@ const FilterIcon = () => {
       <path
         d="M5 10H15M2.5 5H17.5M7.5 15H12.5"
         stroke="#8D7855"
-        stroke-linecap="round"
-        stroke-linejoin="round"
+        strokeLinecap="round"
+        strokeLinejoin="round"
       />
     </svg>
   );

@@ -1,20 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Search.css";
 import ExportIcon from "../../../icons/export-icon";
 import FilterIcon from "../../../icons/filter-icon";
 import AddIcon from "../../../icons/add-icon";
 import SearchIcon from "../../../icons/search-icon";
 
-function Search({ onFilterClick }) {
+function Search({ onFilterClick, onSearch }) {
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const handleInputChange = (e) => {
+    const value = e.target?.value;
+    setSearchTerm(value || "");
+    onSearch(value || "");
+  };
+
   return (
     <div className="search-section">
       <div>
         <span className="search-head">Search</span>
-        <div class="input-icons">
+        <div className="input-icons">
           <i>
             <SearchIcon />
           </i>
-          <input class="input-field" type="text" placeholder="Search" />
+          <input
+            className="input-field"
+            type="text"
+            placeholder="Search by title"
+            value={searchTerm}
+            onChange={handleInputChange}
+          />
         </div>
       </div>
 
