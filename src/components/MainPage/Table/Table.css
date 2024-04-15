@@ -1,0 +1,52 @@
+.table {
+  width: 90vw;
+  background-color: white;
+  border-radius: 2px;
+  border-collapse: collapse;
+}
+
+.table-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 8px;
+}
+
+.table th,
+.table td {
+  padding: 8px;
+  text-align: left;
+  height: 30px;
+  font-family: "Roboto", "Segoe UI", Tahoma, Verdana, sans-serif;
+}
+
+.table th {
+  background-color: #f6f3ef;
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.table td {
+  font-weight: 400;
+  font-size: 14px;
+}
+
+.table th:first-child,
+.table td:first-child {
+  width: 50px;
+  text-align: center;
+}
+
+.table th:last-child,
+.table td:last-child {
+  width: 50px;
+  text-align: center;
+}
+
+.table th:nth-child(2),
+.table td:nth-child(2) {
+  width: 80px;
+  text-align: center;
+}

@@ -1,0 +1,29 @@
+.main-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  background-color: #ebecf2;
+  width: 96vw;
+  height: 100vh;
+  overflow-x: auto;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+  gap: 15px;
+  padding: 20px;
+}
+
+.filter-panel {
+  position: relative;
+  background-color: #fff;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+  width: 300px;
+}
+
+.drawer {
+  width: 300px !important;
+}

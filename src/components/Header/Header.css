@@ -1,0 +1,48 @@
+.header {
+  width: 94%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.product {
+  font-size: 32px;
+  font-weight: 700;
+  font-family: "Roboto", "Segoe UI", Tahoma, Verdana, sans-serif;
+  margin-left: 47px;
+  color: #8d7855;
+}
+
+.notification-badge {
+  display: flex;
+  margin-right: 10px;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.user-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-right: 17px;
+  height: 22px;
+  width: 180px;
+  background-color: #f3f4f6;
+  padding: 16px;
+  margin-left: 20px;
+  border-radius: 8px;
+}
+
+.user-badge img {
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.user-badge span {
+  font-size: 15px;
+  font-weight: 400;
+  font-family: "Roboto", "Segoe UI", Tahoma, Verdana, sans-serif;
+  color: #374151;
+}
