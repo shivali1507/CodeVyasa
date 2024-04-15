@@ -1,3 +1,9 @@
+# CodeVyasa
+Created a Products UI using HTML, CSS, Javascript and React
+
+How to run:
+1. Write the command - npm start
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
